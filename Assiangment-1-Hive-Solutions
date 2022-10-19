@@ -1,0 +1,46 @@
+1. Downloaded sales_order_data.csv
+________________________________________________________________________________________________________________________________________________________________
+
+2. Store raw data into hdfs location
+
+For this, I followed 2 steps:
+I. Copy the sales_order_data.csv from Laptop to Cloudera LFS using Filezilla by drag and drop. 
+
+II Copy the sales_order_data.csv from LFS to tmp/sales folder in HDFS location using command.
+Command: hadoop fs -put /home/cloudera?sales_order_data.csv /tmp/sales
+________________________________________________________________________________________________________________________________________________________________
+3. Create a internal hive table "sales_order_csv" which will store csv data sales_order_csv .. make sure to skip header row while creating table.
+
+I. Created a Database named Sales
+Command: create database sales
+
+II. Create an Internal table named "sales_order_csv"
+Command: 
+create table sales_order_csv
+(
+ordernumber int,
+quantity int,
+price float,
+olnumber int,
+sales float,
+status string,
+qtrid int,
+month int,
+year int,
+productline string,
+msrp int,
+product_code string,
+phone string,
+city string,
+state string,
+postalcode string,
+country string,
+teritory string,
+contactlname string,
+contactfname string,
+dealsize string
+)
+row format delimited
+fields terminated by ','
+tblproperties("skip.header.line.count"="1");
+__________________________________________________________________________________________________________________________________________________________________
