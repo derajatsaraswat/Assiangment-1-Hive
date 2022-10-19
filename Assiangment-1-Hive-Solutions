@@ -44,3 +44,41 @@ row format delimited
 fields terminated by ','
 tblproperties("skip.header.line.count"="1");
 __________________________________________________________________________________________________________________________________________________________________
+
+4. Load data from hdfs path into "sales_order_csv" 
+Command: load data inpath '/tmp/sales/sales_order_data.csv' into table sales_order_csv;
+__________________________________________________________________________________________________________________________________________________________________
+5. Create an internal hive table which will store data in ORC format "sales_order_orc"
+Command:
+create table sales_order_orc
+(
+ordernumber int,
+quantity int,
+price float,
+onumber string,
+sales float,
+status string,
+qtrid int,
+month int,
+year int,
+productline string,
+msrp int,
+product_code string,
+phone string,
+city string,
+state string,
+postalcode string,
+country string,
+teriroty string,
+contactlname string,
+contactfname string,
+dealsize string
+)
+row format delimited
+fields terminated by ','
+stored as orc
+tblproperties("skip.header.line.count"="1");
+____________________________________________________________________________________________________________________________________________________________________
+Load data from "sales_order_csv" into "sales_order_orc"
+
+Command: from sales_order_csv insert overwrite table sales_order_orc select*;
