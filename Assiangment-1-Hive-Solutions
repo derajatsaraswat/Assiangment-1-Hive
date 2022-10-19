@@ -95,3 +95,6 @@ SELECT MAX(productline) AS max_product, COUNT(productline) FROM sales_order_orc;
 c. Calculate the total sales for each quarter
 SELECT SUM(sales) AS total_sales, qtrid AS quarter_id FROM sales_order_orc GROUP BY qtrid;
 
+d. In which quarter sales was minimum. 
+
+
