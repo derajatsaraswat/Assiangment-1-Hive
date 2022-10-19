@@ -90,11 +90,15 @@ a. Calculatye total sales per year
 Solution: SELECT SUM(sales) AS total_sales, year AS year FROM sales_order_orc GROUP BY year;
 
 b. Find a product for which maximum orders were placed
-SELECT MAX(productline) AS max_product, COUNT(productline) FROM sales_order_orc;
+Solution: SELECT MAX(productline) AS max_product, COUNT(productline) FROM sales_order_orc;
 
 c. Calculate the total sales for each quarter
-SELECT SUM(sales) AS total_sales, qtrid AS quarter_id FROM sales_order_orc GROUP BY qtrid;
+solution: SELECT SUM(sales) AS total_sales, qtrid AS quarter_id FROM sales_order_orc GROUP BY qtrid;
 
 d. In which quarter sales was minimum. 
-SELECT SUM(sales) AS total_sales, qtdir AS quarter_id FROM sales_order_orc GROUP BY qtrid ORDER BY total_sales LIMIT 1;
+Solution: SELECT SUM(sales) AS total_sales, qtdir AS quarter_id FROM sales_order_orc GROUP BY qtrid ORDER BY total_sales LIMIT 1;
 
+e. In which country sales was maximum and in which country sales was minimum
+Solution: SELECT MIN(sales), MAX(sales), country FROM sales_order_orc GROUP BY country;
+
+f. Calculate quartelry sales for each city.
