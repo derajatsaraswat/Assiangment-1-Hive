@@ -102,3 +102,4 @@ e. In which country sales was maximum and in which country sales was minimum
 Solution: SELECT MIN(sales), MAX(sales), country FROM sales_order_orc GROUP BY country;
 
 f. Calculate quartelry sales for each city.
+Solution: SELECT qtrid, SUM(sales) AS sum_of_sales, city FROM sales_order_orc GROUP BY city,qtrid;
